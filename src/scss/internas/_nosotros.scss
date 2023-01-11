@@ -1,0 +1,16 @@
+.nostros{
+    h4{
+        margin:.5rem 0 1rem 0;
+    }
+}
+
+.contenido-nostros{
+    @include tablet{
+        @include grid(2,2rem);
+    }
+    
+
+    .imagen{
+        margin:auto;
+    }
+}

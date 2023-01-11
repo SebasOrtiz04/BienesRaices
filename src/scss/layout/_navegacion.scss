@@ -1,0 +1,110 @@
+.derecha{
+    display: none;
+
+    @include tablet{
+        display: flex;
+        flex-direction: row;    
+    }
+
+    .dark-mode-boton{
+        width: 3rem;
+        margin: 0 3rem;
+        filter:invert(100%);
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.barra{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:2rem;
+}
+
+.navegacion{
+    display:none;
+    @include tablet{
+        display:flex;
+        align-items: center;
+    }
+    a{
+        color:$blanco;
+        text-decoration:none;
+        font-size:2.2rem;
+        display:block;
+        text-align:center;
+        transition:color .5s linear;
+
+        @include tablet{
+            margin-right:2rem;
+            &last-of-types{
+                margin-right:0;
+            }
+        }
+    }
+
+    a:hover{
+        color:$verde;
+    }
+}
+
+/** Menú de Hamburguesa **/
+
+.mobile-menu{
+
+    img{
+        width: 5rem;
+        margin-right:3rem;
+    }
+
+    @include tablet{
+        display: none;
+    }
+}
+
+.mostrar{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 2;
+    width: 100%;
+    background:$grisOscuro; 
+    padding: 3rem;
+    animation: mostrar .2s linear;
+
+    .navegacion{
+        display: flex;
+        flex-direction:column ;
+    }
+
+    a{
+        font-weight: $bold;
+        font-size: 3rem;
+        animation: mostrar .2s linear;
+    }
+
+    .contenedor-imagen{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+}
+
+@keyframes mostrar{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
