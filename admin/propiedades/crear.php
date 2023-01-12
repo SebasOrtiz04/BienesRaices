@@ -95,7 +95,7 @@
         if($resultado){
             //Redireccionando al usuario
             
-            header('Location:/bienesraices/admin/index.php');
+            header('Location:/bienesraices/admin/index.php?result=1');
         }
         }
 

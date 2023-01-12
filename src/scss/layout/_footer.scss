@@ -1,12 +1,22 @@
 .footer{
     background-color:$grisOscuro;
     margin-bottom: 0;
+    padding:2rem;
     .contenedor-footer{
         padding-top:calc($separacion/2);
+
+        .navegacion{
+            display: flex;
+            flex-direction: column;
+            @include tablet{
+                flex-direction: row;
+            }
+        }
     }
 
     .copyright{
         color: $blanco;
         text-align:center;
+        font-size: 2rem;
     }
 }
