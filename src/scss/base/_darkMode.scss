@@ -25,13 +25,25 @@
     .boton-amarillo{
         @include boton($amarillo,inline-block,$grisOscuro);
     }
-
     .boton-amarillo-block{
         @include boton($amarillo,block,$grisOscuro);
     }
-
+    
+    //Botones verdes
     .boton-verde{
         @include boton($verde,inline-block,$grisOscuro);
+    }
+    .boton-verde-block{
+        @include boton($verde,block,$grisOscuro);
+    }
+    
+    //Botones rojos
+    .boton-rojo-block{
+        @include boton($rojo,inline-block,$grisOscuro);
+    }
+    
+    .boton-rojo-block{
+        @include boton($rojo,block,$grisOscuro);
     }
 
     .formulario{

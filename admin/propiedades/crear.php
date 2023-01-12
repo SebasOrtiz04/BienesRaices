@@ -42,9 +42,9 @@
         //Asignar files hacia una variable
         $imagen=$_FILES['imagen'];
 
-        echo "<pre>";
-        var_dump($imagen);
-        echo "</pre>";
+        // echo "<pre>";
+        // var_dump($imagen);
+        // echo "</pre>";
         
         //Validar formulario
         if(!$titulo)$errores[]='Debes añadir un titulo';
@@ -108,7 +108,7 @@
     incluirTemplate('header');
 ?>
 <main class="contenedor seccion contenido-centrado">
-    <h1>Crear</h1>
+    <h1>Añadir nueva propiedad para venta</h1>
 
     <a href="../index.php" class="boton boton-verde">Volver</a>
 
