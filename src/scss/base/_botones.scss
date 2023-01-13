@@ -5,6 +5,7 @@
 }
 .boton-amarillo-block{
     @include boton($amarillo,block);
+    width: 100%;
 }
 
 //Botones verdes
@@ -13,14 +14,16 @@
 }
 .boton-verde-block{
     @include boton($verde,block);
+    width: 100%;
 }
 
 //Botones rojos
-.boton-rojo-block{
+.boton-rojo{
     @include boton($rojo,inline-block);
 }
 
 .boton-rojo-block{
     @include boton($rojo,block);
+    width: 100%;
 }
 
