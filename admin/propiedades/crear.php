@@ -1,4 +1,9 @@
 <?php
+    require '../../includes/funciones.php';
+
+    //Revisar si el usuario está autenticado
+    $auth = estaAutenticado();
+    if(!$auth) header('Location: /bienesraices/login.php');
 
     // Base de datos
     require '../../includes/config/database.php';
@@ -103,8 +108,7 @@
     }
 
 
-
-    require '../../includes/funciones.php';
+    //Incluir template del header
     incluirTemplate('header');
 ?>
 <main class="contenedor seccion contenido-centrado">

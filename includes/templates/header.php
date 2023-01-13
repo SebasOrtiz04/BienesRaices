@@ -1,3 +1,10 @@
+<?php
+
+//Validar si el usuario está autenticado
+if(!isset($_SESSION))session_start();
+$auth = $_SESSION['login'] ?? false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +20,7 @@
         <div class="contenedor contenido-header">
           <div class="barra">
             <a href="/bienesraices/index.php">
-            <img src="/bienesraices/build/img/logo.svg" alt="Logotipo de Bienes Raices">
+            <img src="/bienesraices/build/img/logo.svg" alt="Logotipo de Bienes Raices" class="logo">
             </a>
 
             <div class="mobile-menu">
@@ -25,6 +32,9 @@
                     <a href="/bienesraices/anuncios.php">Anuncios</a>
                     <a href="/bienesraices/blog.php">Blog</a>
                     <a href="/bienesraices/contacto.php">Contacto</a>
+                    <?php if($auth): ?> 
+                        <a href="/bienesraices/cerrar-sesion.php">Cerrar Sesión</a>
+                    <?php endif; ?> 
                 </nav>
 
                 <dic class="contenedor-imagen">

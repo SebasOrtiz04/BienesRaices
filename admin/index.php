@@ -1,5 +1,11 @@
 <?php
 
+require '../includes/funciones.php';
+
+    //Revisar si el usuario está autenticado
+    $auth = estaAutenticado();
+    if(!$auth) header('Location: /bienesraices/login.php');
+
     //Importar la conexión
     require '../includes/config/database.php';
     $db = conectarDB();
@@ -34,7 +40,6 @@
     }
 
     //Incluye un template
-    require '../includes/funciones.php';
     incluirTemplate('header');
 ?>
 <main class="contenedor seccion">

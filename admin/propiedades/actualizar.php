@@ -1,4 +1,10 @@
 <?php
+    require '../../includes/funciones.php';
+
+    //Revisar si el usuario está autenticado
+    $auth = estaAutenticado();
+    if(!$auth) header('Location: /bienesraices/login.php');
+
     //Validar por ID válido
     $id = $_GET['id'];
     $id = filter_var($id,FILTER_VALIDATE_INT);
@@ -116,7 +122,6 @@
     }
 
     //Se requieren funciones
-    require '../../includes/funciones.php';
     incluirTemplate('header');
 
 ?>
