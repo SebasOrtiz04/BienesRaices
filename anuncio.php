@@ -1,6 +1,5 @@
 <?php
-    require __DIR__.'/includes/config/database.php';
-    require 'includes/funciones.php';
+    require 'includes/app.php';
 
     //Validar por ID válido
     $id = $_GET['id'];

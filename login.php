@@ -1,7 +1,7 @@
 <?php
     
     //Importar conexión a BD
-    require 'includes/config/database.php';
+    require 'includes/app.php';
     $db = conectarDB();
 
     $errores = [];
@@ -62,7 +62,6 @@
     }
 
     //incluye el header
-    require 'includes/funciones.php';
     incluirTemplate('header');
 ?>
 <main class="contenedor seccion contenido-centrado">

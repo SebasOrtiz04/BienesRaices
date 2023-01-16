@@ -1,9 +1,8 @@
 <?php
-    require '../../includes/funciones.php';
+    require '../../includes/app.php';
 
     //Revisar si el usuario está autenticado
-    $auth = estaAutenticado();
-    if(!$auth) header('Location: /bienesraices/login.php');
+    estaAutenticado();
 
     //Validar por ID válido
     $id = $_GET['id'];
@@ -11,7 +10,6 @@
     if(!$id) header('Location:/bienesraices/admin/index.php');
     
     // Base de datos
-    require '../../includes/config/database.php';
     $db = conectarDB();
 
     //Consulta obtener datos de la propiedad
