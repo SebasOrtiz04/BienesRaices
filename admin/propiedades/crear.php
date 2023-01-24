@@ -20,14 +20,14 @@
     //Ejecuta código después de que el usuario envía el formulario
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
-        $propiedad = new Propiedad($_POST);
+        $propiedad = new Propiedad($_POST['propiedad']);
 
         //Generar un nombre único
         $nombreImagen = md5(uniqid(rand(),true)) . ".jpg";
 
         //Realizar un resize a la imagen con Intervention
-        if($_FILES['imagen']['tmp_name']){
-            $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+        if($_FILES['propiedad']['tmp_name']['imagen']){
+            $image = Image::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800,600);
             $propiedad->setImagen($nombreImagen);
         }
 
@@ -45,12 +45,9 @@
             $image->save(CARPETA_IMAGENES.$nombreImagen);
             
             //Guarda en la base de datos
-            $resultado = $propiedad->guardar();
-
-            if($resultado){
-                header('Location: /bienesraices/admin/index.php?result=1');
-            }
+            $propiedad->guardar();
         }
+        $propiedad->setImagen('');
      }
 
     //Incluir template del header

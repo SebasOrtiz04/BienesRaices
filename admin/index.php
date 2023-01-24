@@ -8,6 +8,7 @@ use App\Propiedad;
 
     //Implementar un método para obtener todas las propiedades
     $propiedades =  Propiedad::all();
+    
     //Muestra mensaje condicional
     $result = $_GET['result'] ?? null;
 
@@ -17,6 +18,9 @@ use App\Propiedad;
 
         if($id){
 
+            $propiedad = Propiedad::find($id);
+
+            $propiedad->eliminar();
             //Peticion del nombre de la imagen
             $query = "SELECT imagen FROM propiedades WHERE id = $id";
             $resultado = mysqli_query($db,$query);
