@@ -2,14 +2,15 @@
     require '../../includes/app.php';
 
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
 
     //Revisar si el usuario está autenticado
     estaAutenticado();
 
     //Consulta para vendedores
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = $db->query($consulta);
+    $vendedores = Vendedor::all();
+
 
     //Declaro objeto de propiedad
     $propiedad = new Propiedad;

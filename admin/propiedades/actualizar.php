@@ -2,6 +2,7 @@
     require '../../includes/app.php';
 
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
 
     //Revisar si el usuario está autenticado
@@ -15,9 +16,8 @@
     //Consulta obtener datos de la propiedad
     $propiedad=Propiedad::find($id);
 
-    //Consulta para vendedores
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db,$consulta);
+    //Consulta para obtener los vendedores
+    $vendedores=Vendedor::all();
 
     //Arreglo con mensajes de errores
     $errores= Propiedad::getErrores();
@@ -50,9 +50,10 @@
             //Crear carpeta
             if(!is_dir(CARPETA_IMAGENES)) mkdir(CARPETA_IMAGENES);
             
-            //Guarda la imagen en el servidor
-            $image->save(CARPETA_IMAGENES.$nombreImagen);
-            
+            if($_FILES['propiedad']['tmp_name']['imagen']){
+                //Guarda la imagen en el servidor
+                $image->save(CARPETA_IMAGENES.$nombreImagen);
+            }
             //Guarda en la base de datos
             $propiedad->guardar();
         }
