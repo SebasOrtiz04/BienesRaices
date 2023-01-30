@@ -11,22 +11,20 @@ use App\Vendedor;
     $propiedades =  Propiedad::all();
     $vendedores = Vendedor::all();
     
-    
     //Muestra mensaje condicional
     $result = $_GET['result'] ?? null;
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+        //Validar id
         $id = $_POST['id'];
         $id = filter_var($id,FILTER_VALIDATE_INT);
-
-
 
         if($id){
 
             $tipo = $_POST['tipo'];
             if(validarTipoContenido($tipo)){
-                
+                //Compara lo que se va a eliminar
                 if($tipo === 'vendedor'){
                     $vendedor = Vendedor::find($id);
                     $vendedor->eliminar();
@@ -36,7 +34,6 @@ use App\Vendedor;
                     $propiedad->eliminar();
                 }
             }
-
         }
     }
 
@@ -47,16 +44,12 @@ use App\Vendedor;
     <h1>Administrador de Bienes Raices</h1>
 
     <!-- Inyecta mensaje condicional -->
-    <?php if(intval($result)===1):?>
-        <p class="alerta exito">Creado Correctamente</p>
-    
-    <?php elseif(intval($result)===2): ?>
-        <p class="alerta exito">Actualizado Correctamente</p>
-    
-    <?php elseif(intval($result)===3): ?>
-        <p class="alerta exito">Eliminado Correctamente</p>
-    
-    <?php endif;?>
+    <?php $mensaje = mostrarNotificacion(intval($result)); 
+            if($mensaje):?>
+            
+            <p class="alerta exito"><?php echo s($mensaje);?></p>
+
+    <?php   endif;?>
     <!-- Fin de inyección de mensaje -->
 
     <a href="propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
